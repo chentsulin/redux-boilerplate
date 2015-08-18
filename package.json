@@ -12,11 +12,12 @@
     "test": "mocha --compilers js:babel/register --recursive",
     "test:watch": "npm test -- --watch",
     "test:cov": "babel-node $(npm bin)/isparta cover $(npm bin)/_mocha -- --recursive",
+    "check": "npm run lint && npm run test",
     "build:lib": "babel src --out-dir lib",
     "build:umd": "webpack src/index.js dist/redux-boilerplate.js --config webpack.config.development.js",
     "build:umd:min": "webpack src/index.js dist/redux-boilerplate.min.js --config webpack.config.production.js",
     "build": "npm run build:lib && npm run build:umd && npm run build:umd:min",
-    "preversion": "npm run clean",
+    "preversion": "npm run clean && npm run check",
     "version": "npm run build",
     "postversion": "git push && git push --tags && npm run clean",
     "prepublish": "npm run clean && npm run build"
