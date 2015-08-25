@@ -1,12 +1,10 @@
 import { expect } from 'chai';
 import jsdom from 'mocha-jsdom';
-import React from 'react/addons';
+import React from 'react';
+import TestUtils from 'react-addons-test-utils';
 import { Provider } from 'react-redux';
 import CounterPage from '../../src/containers/CounterPage';
 import configureStore from '../../src/store/configureStore';
-
-
-const { TestUtils } = React.addons;
 
 
 function setup(initialState) {

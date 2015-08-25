@@ -2,11 +2,9 @@
 import { expect } from 'chai';
 import { spy } from 'sinon';
 import jsdom from 'mocha-jsdom';
-import React from 'react/addons';
+import React from 'react';
+import TestUtils from 'react-addons-test-utils';
 import Counter from '../../src/components/Counter';
-
-
-const { TestUtils } = React.addons;
 
 
 function setup() {
