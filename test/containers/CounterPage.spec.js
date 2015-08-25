@@ -13,15 +13,15 @@ function setup(initialState) {
   const store = configureStore(initialState);
   const app = TestUtils.renderIntoDocument(
     <Provider store={store}>
-      {() => <CounterPage />}
+      <CounterPage />
     </Provider>
   );
   return {
     app: app,
     buttons: TestUtils.scryRenderedDOMComponentsWithTag(app, 'button').map(button => {
-      return button.getDOMNode();
+      return button;
     }),
-    p: TestUtils.findRenderedDOMComponentWithTag(app, 'p').getDOMNode()
+    p: TestUtils.findRenderedDOMComponentWithTag(app, 'p')
   };
 }
 

@@ -21,9 +21,9 @@ function setup() {
     component: component,
     actions: actions,
     buttons: TestUtils.scryRenderedDOMComponentsWithTag(component, 'button').map(button => {
-      return button.getDOMNode();
+      return button;
     }),
-    p: TestUtils.findRenderedDOMComponentWithTag(component, 'p').getDOMNode()
+    p: TestUtils.findRenderedDOMComponentWithTag(component, 'p')
   };
 }
 
