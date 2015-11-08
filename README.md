@@ -1,4 +1,6 @@
-# counter
+# redux-boilerplate
+
+[![Build Status][travis-image]][travis-url]
 
 > Another boilerplate for personal usage
 
@@ -17,9 +19,12 @@ npm start
 npm test
 ```
 
-note: jsdom >= v4.0 only work on io.js
+note: jsdom >= v4.0 can not work on node 0.x
 
 
 ## License
 
 MIT © [C.T. Lin](https://github.com/chentsulin/redux-boilerplate)
+
+[travis-image]: https://travis-ci.org/chentsulin/redux-boilerplate.svg?branch=master
+[travis-url]: https://travis-ci.org/chentsulin/redux-boilerplate
