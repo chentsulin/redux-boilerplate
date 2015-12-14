@@ -11,7 +11,7 @@
     "lint": "eslint src test",
     "test": "NODE_ENV=test mocha --compilers js:babel/register --recursive --require ./test/setup.js",
     "test:watch": "npm test -- --watch",
-    "test:cov": "NODE_ENV=test babel-node $(npm bin)/isparta cover $(npm bin)/_mocha -- --recursive",
+    "test:cov": "NODE_ENV=test babel-node $(npm bin)/isparta cover node_modules/mocha/bin/_mocha -- --recursive",
     "check": "npm run lint && npm run test ",
     "build": "NODE_ENV=production webpack src/index.js --config webpack.config.production.js",
     "preversion": "npm run clean && npm run check",
