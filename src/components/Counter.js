@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 
 
-export default  class Counter extends Component {
+export default class Counter extends Component {
   static propTypes = {
     increment: PropTypes.func.isRequired,
     incrementIfOdd: PropTypes.func.isRequired,
