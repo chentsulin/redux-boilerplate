@@ -4,7 +4,7 @@ import {
   renderIntoDocument,
   scryRenderedDOMComponentsWithTag,
   findRenderedDOMComponentWithTag,
-  Simulate
+  Simulate,
 } from 'react-addons-test-utils';
 import { Provider } from 'react-redux';
 import CounterPage from '../../src/containers/CounterPage';
@@ -20,10 +20,8 @@ function setup(initialState) {
   );
   return {
     app,
-    buttons: scryRenderedDOMComponentsWithTag(app, 'button').map(button => {
-      return button;
-    }),
-    p: findRenderedDOMComponentWithTag(app, 'p')
+    buttons: scryRenderedDOMComponentsWithTag(app, 'button').map(button => button),
+    p: findRenderedDOMComponentWithTag(app, 'p'),
   };
 }
 
