@@ -6,7 +6,7 @@ import * as containers from './containers';
 
 const {
   CounterPage,
-  NotFoundPage
+  NotFoundPage,
 } = containers;
 
 
