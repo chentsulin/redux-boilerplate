@@ -4,7 +4,7 @@
 
 > Another boilerplate for personal usage
 
-Extend [counter examples](https://github.com/rackt/redux/tree/master/examples/counter) with [react-router](https://github.com/rackt/react-router). And use [chai](https://github.com/chaijs/chai) and [sinon](https://github.com/cjohansen/Sinon.JS/) instead of [expect](https://github.com/mjackson/expect).
+Extend [redux counter examples](https://github.com/reactjs/redux/tree/master/examples/counter) with [react-router](https://github.com/reactjs/react-router) and [react-router-redux](https://github.com/reactjs/react-router-redux). Besides, use [chai](https://github.com/chaijs/chai) and [sinon](https://github.com/sinonjs/sinon) instead of [expect](https://github.com/mjackson/expect).
 
 ## Start
 
