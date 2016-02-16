@@ -27,7 +27,7 @@ function setup(initialState) {
 
 
 describe('containers', () => {
-  describe('App', () => {
+  describe('CounterPage', () => {
     it('should display initial count', () => {
       const { p } = setup();
       expect(p.textContent).to.match(/^Clicked: 0 times/);
