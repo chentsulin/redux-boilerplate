@@ -27,6 +27,10 @@ $ npm test
 
 note: jsdom >= v4.0 can not work on node 0.x
 
+## Generator
+
+check [generator-redux-app](https://github.com/chentsulin/generator-redux-app) out.
+
 ## License
 
 MIT © [C.T. Lin](https://github.com/chentsulin/redux-boilerplate)
