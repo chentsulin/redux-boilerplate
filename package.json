@@ -33,7 +33,6 @@
     "counter"
   ],
   "devDependencies": {
-    "babel": "^6.5.2",
     "babel-cli": "^6.6.5",
     "babel-core": "^6.7.4",
     "babel-eslint": "^6.0.2",
