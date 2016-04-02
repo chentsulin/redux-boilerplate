@@ -25,31 +25,31 @@ describe('containers', () => {
   describe('CounterPage', () => {
     it('should display initial count', () => {
       const { p } = setup();
-      expect(p.text()).to.match(/^Clicked: 0 times/);
+      expect(p).to.have.text().match(/^Clicked: 0 times/);
     });
 
     it('should display updated count after increment button click', () => {
       const { buttons, p } = setup();
       buttons.at(0).simulate('click');
-      expect(p.text()).to.match(/^Clicked: 1 times/);
+      expect(p).to.have.text().match(/^Clicked: 1 times/);
     });
 
     it('should display updated count after descrement button click', () => {
       const { buttons, p } = setup();
       buttons.at(1).simulate('click');
-      expect(p.text()).to.match(/^Clicked: -1 times/);
+      expect(p).to.have.text().match(/^Clicked: -1 times/);
     });
 
     it('shouldnt change if even and if odd button clicked', () => {
       const { buttons, p } = setup();
       buttons.at(2).simulate('click');
-      expect(p.text()).to.match(/^Clicked: 0 times/);
+      expect(p).to.have.text().match(/^Clicked: 0 times/);
     });
 
     it('should change if odd and if odd button clicked', () => {
       const { buttons, p } = setup({ counter: 1 });
       buttons.at(2).simulate('click');
-      expect(p.text()).to.match(/^Clicked: 2 times/);
+      expect(p).to.have.text().match(/^Clicked: 2 times/);
     });
   });
 });

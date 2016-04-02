@@ -28,30 +28,30 @@ function setup() {
 describe('Counter component', () => {
   it('should display count', () => {
     const { p } = setup();
-    expect(p.text()).to.match(/^Clicked: 1 times/);
+    expect(p).to.have.text().match(/^Clicked: 1 times/);
   });
 
   it('first button should call increment', () => {
     const { buttons, actions } = setup();
     buttons.at(0).simulate('click');
-    expect(actions.increment.called).to.be.true;
+    expect(actions.increment).to.have.been.called;
   });
 
   it('second button should call decrement', () => {
     const { buttons, actions } = setup();
     buttons.at(1).simulate('click');
-    expect(actions.decrement.called).to.be.true;
+    expect(actions.decrement).to.have.been.called;
   });
 
   it('third button should call incrementIfOdd', () => {
     const { buttons, actions } = setup();
     buttons.at(2).simulate('click');
-    expect(actions.incrementIfOdd.called).to.be.true;
+    expect(actions.incrementIfOdd).to.have.been.called;
   });
 
   it('fourth button should call incrementAsync', () => {
     const { buttons, actions } = setup();
     buttons.at(3).simulate('click');
-    expect(actions.incrementAsync.called).to.be.true;
+    expect(actions.incrementAsync).to.have.been.called;
   });
 });
