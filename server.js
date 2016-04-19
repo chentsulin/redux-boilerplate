@@ -1,31 +1,19 @@
-/* eslint no-console: 0 */
-const path = require('path');
-const express = require('express');
 const webpack = require('webpack');
+const WebpackDevServer = require('webpack-dev-server');
 const config = require('./webpack.config');
-const port = process.env.PORT || 3000;
 
-const app = express();
-const compiler = webpack(config);
 
-app.use(require('webpack-dev-middleware')(compiler, {
+new WebpackDevServer(webpack(config), {
   publicPath: config.output.publicPath,
+  hot: true,
+  historyApiFallback: true,
   stats: {
-    colors: true,
-  },
-}));
-
-app.use(require('webpack-hot-middleware')(compiler));
-
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'index.html'));
-});
-
-app.listen(port, 'localhost', (err) => {
+    colors: true
+  }
+}).listen(3000, 'localhost', function (err) {
   if (err) {
     console.log(err);
-    return;
   }
 
-  console.log(`Listening at http://localhost:${port}`);
+  console.log('Listening at localhost:3000');
 });

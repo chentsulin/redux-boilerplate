@@ -1,6 +1,7 @@
+import { AppContainer } from 'react-hot-loader';
 import React from 'react';
 import { render } from 'react-dom';
-import Root from './containers/Root';
+import App from './containers/App';
 import { browserHistory } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
 import configureStore from './store/configureStore';
@@ -14,8 +15,24 @@ if (process.env.NODE_ENV === 'development') {
   createDevToolsWindow(store);
 }
 
+const rootEl = document.getElementById('root');
 
 render(
-  <Root store={store} history={history} />,
-  document.getElementById('root')
+  <AppContainer
+    component={App}
+    props={{ store, history }}
+  />,
+  rootEl
 );
+
+if (module.hot) {
+  module.hot.accept('./containers/App', () => {
+    render(
+      <AppContainer
+        component={require('./containers/App').default}
+        props={{ store, history }}
+      />,
+      rootEl
+    );
+  });
+}
