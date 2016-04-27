@@ -1,4 +1,4 @@
-import { expect } from 'chai';
+import test from 'ava';
 import React from 'react';
 import { mount } from 'enzyme';
 import { Provider } from 'react-redux';
@@ -21,35 +21,31 @@ function setup(initialState) {
 }
 
 
-describe('containers', () => {
-  describe('CounterPage', () => {
-    it('should display initial count', () => {
-      const { p } = setup();
-      expect(p).to.have.text().match(/^Clicked: 0 times/);
-    });
+test('should display initial count', t => {
+  const { p } = setup();
+  t.regex(p.text(), /^Clicked: 0 times/);
+});
 
-    it('should display updated count after increment button click', () => {
-      const { buttons, p } = setup();
-      buttons.at(0).simulate('click');
-      expect(p).to.have.text().match(/^Clicked: 1 times/);
-    });
+test('should display updated count after increment button click', t => {
+  const { buttons, p } = setup();
+  buttons.at(0).simulate('click');
+  t.regex(p.text(), /^Clicked: 1 times/);
+});
 
-    it('should display updated count after descrement button click', () => {
-      const { buttons, p } = setup();
-      buttons.at(1).simulate('click');
-      expect(p).to.have.text().match(/^Clicked: -1 times/);
-    });
+test('should display updated count after descrement button click', t => {
+  const { buttons, p } = setup();
+  buttons.at(1).simulate('click');
+  t.regex(p.text(), /^Clicked: -1 times/);
+});
 
-    it('shouldnt change if even and if odd button clicked', () => {
-      const { buttons, p } = setup();
-      buttons.at(2).simulate('click');
-      expect(p).to.have.text().match(/^Clicked: 0 times/);
-    });
+test('shouldnt change if even and if odd button clicked', t => {
+  const { buttons, p } = setup();
+  buttons.at(2).simulate('click');
+  t.regex(p.text(), /^Clicked: 0 times/);
+});
 
-    it('should change if odd and if odd button clicked', () => {
-      const { buttons, p } = setup({ counter: 1 });
-      buttons.at(2).simulate('click');
-      expect(p).to.have.text().match(/^Clicked: 2 times/);
-    });
-  });
+test('should change if odd and if odd button clicked', t => {
+  const { buttons, p } = setup({ counter: 1 });
+  buttons.at(2).simulate('click');
+  t.regex(p.text(), /^Clicked: 2 times/);
 });

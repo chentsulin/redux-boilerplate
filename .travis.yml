@@ -4,4 +4,4 @@ node_js:
   - '4'
   - '5'
 script: "npm run lint && npm run test:cov"
-after_script: "npm install coveralls@2 && cat ./coverage/lcov.info | coveralls"
+after_script: "npm install coveralls@2 && nyc report --reporter=text-lcov | coveralls"
