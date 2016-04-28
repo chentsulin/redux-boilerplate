@@ -1,5 +1,5 @@
 /* eslint no-unused-expressions: 0 */
-import { expect } from 'chai';
+import test from 'ava';
 import { spy } from 'sinon';
 import React from 'react';
 import { shallow } from 'enzyme';
@@ -25,33 +25,31 @@ function setup() {
 }
 
 
-describe('Counter component', () => {
-  it('should display count', () => {
-    const { p } = setup();
-    expect(p).to.have.text().match(/^Clicked: 1 times/);
-  });
+test('should display count', t => {
+  const { p } = setup();
+  t.regex(p.text(), /^Clicked: 1 times/);
+});
 
-  it('first button should call increment', () => {
-    const { buttons, actions } = setup();
-    buttons.at(0).simulate('click');
-    expect(actions.increment).to.have.been.called;
-  });
+test('first button should call increment', t => {
+  const { buttons, actions } = setup();
+  buttons.at(0).simulate('click');
+  t.true(actions.increment.called);
+});
 
-  it('second button should call decrement', () => {
-    const { buttons, actions } = setup();
-    buttons.at(1).simulate('click');
-    expect(actions.decrement).to.have.been.called;
-  });
+test('second button should call decrement', t => {
+  const { buttons, actions } = setup();
+  buttons.at(1).simulate('click');
+  t.true(actions.decrement.called);
+});
 
-  it('third button should call incrementIfOdd', () => {
-    const { buttons, actions } = setup();
-    buttons.at(2).simulate('click');
-    expect(actions.incrementIfOdd).to.have.been.called;
-  });
+test('third button should call incrementIfOdd', t => {
+  const { buttons, actions } = setup();
+  buttons.at(2).simulate('click');
+  t.true(actions.incrementIfOdd.called);
+});
 
-  it('fourth button should call incrementAsync', () => {
-    const { buttons, actions } = setup();
-    buttons.at(3).simulate('click');
-    expect(actions.incrementAsync).to.have.been.called;
-  });
+test('fourth button should call incrementAsync', t => {
+  const { buttons, actions } = setup();
+  buttons.at(3).simulate('click');
+  t.true(actions.incrementAsync.called);
 });

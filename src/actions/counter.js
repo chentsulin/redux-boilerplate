@@ -30,9 +30,9 @@ export function incrementIfOdd() {
 
 
 export function incrementAsync(delay = 1000) {
-  return dispatch => {
+  return dispatch => new Promise(resolve => {
     setTimeout(() => {
-      dispatch(increment());
+      resolve(dispatch(increment()));
     }, delay);
-  };
+  });
 }

@@ -1,24 +1,20 @@
-import { expect } from 'chai';
+import test from 'ava';
 import counter from '../../src/reducers/counter';
 import { INCREMENT_COUNTER, DECREMENT_COUNTER } from '../../src/actions/counter';
 
 
-describe('reducers', () => {
-  describe('counter', () => {
-    it('should handle initial state', () => {
-      expect(counter(undefined, {})).to.equal(0);
-    });
+test('should handle initial state', t => {
+  t.is(counter(undefined, {}), 0);
+});
 
-    it('should handle INCREMENT_COUNTER', () => {
-      expect(counter(1, { type: INCREMENT_COUNTER })).to.equal(2);
-    });
+test('should handle INCREMENT_COUNTER', t => {
+  t.is(counter(1, { type: INCREMENT_COUNTER }), 2);
+});
 
-    it('should handle DECREMENT_COUNTER', () => {
-      expect(counter(1, { type: DECREMENT_COUNTER })).to.equal(0);
-    });
+test('should handle DECREMENT_COUNTER', t => {
+  t.is(counter(1, { type: DECREMENT_COUNTER }), 0);
+});
 
-    it('should handle unknown action type', () => {
-      expect(counter(1, { type: 'unknown' })).to.equal(1);
-    });
-  });
+test('should handle unknown action type', t => {
+  t.is(counter(1, { type: 'unknown' }), 1);
 });
