@@ -13,7 +13,7 @@ $ npm install
 $ npm start
 ```
 
-You can change server port using following command.
+Also, you can configure server port using `PORT` environment variable.
 
 ```sh
 $ PORT=5000 npm start
@@ -24,8 +24,6 @@ $ PORT=5000 npm start
 ```sh
 $ npm test
 ```
-
-note: jsdom >= v4.0 can not work on node 0.x
 
 ## Generator
 
