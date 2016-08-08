@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-expressions */
 import { expect } from 'chai';
 import { spy } from 'sinon';
 import * as actions from '../counter';
@@ -27,7 +26,7 @@ describe('actions', () => {
     const dispatch = spy();
     const getState = () => ({ counter: 2 });
     fn(dispatch, getState);
-    expect(dispatch).to.have.not.been.called;
+    expect(dispatch).to.have.not.been.called();
   });
 
   // There's no nice way to test this at the moment...
