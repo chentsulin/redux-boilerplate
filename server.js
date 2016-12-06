@@ -2,12 +2,17 @@
 const path = require('path');
 const express = require('express');
 const webpack = require('webpack');
+const DashboardPlugin = require('webpack-dashboard/plugin');
+
 const config = require('./webpack.config.dev');
+
 
 const port = process.env.PORT || 3000;
 
 const app = express();
 const compiler = webpack(config);
+
+compiler.apply(new DashboardPlugin());
 
 app.use(require('webpack-dev-middleware')(compiler, {
   publicPath: config.output.publicPath,

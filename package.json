@@ -6,7 +6,7 @@
   "license": "MIT",
   "repository": "chentsulin/counter",
   "scripts": {
-    "start": "node server.js",
+    "start": "webpack-dashboard -- node server.js",
     "clean": "rimraf lib dist coverage",
     "lint": "eslint src scripts *.js",
     "testonly": "cross-env NODE_ENV=test BABEL_DISABLE_CACHE=1 mocha --compilers js:babel-register --require scripts/mocha-setup.js src/**/__tests__/**/*.spec.js",
@@ -76,6 +76,7 @@
     "sinon-chai": "^2.8.0",
     "style-loader": "^0.13.1",
     "webpack": "^1.13.3",
+    "webpack-dashboard": "^0.2.0",
     "webpack-dev-middleware": "^1.8.4",
     "webpack-hot-middleware": "^2.13.2"
   },
