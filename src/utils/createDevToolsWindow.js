@@ -8,7 +8,7 @@ import DevTools from '../containers/DevTools';
  * Based on
  * https://gist.github.com/tlrobinson/1e63d15d3e5f33410ef7#gistcomment-1560218.
  */
-const createDevToolsWindow = (store) => {
+const createDevToolsWindow = store => {
   // Window name.
   const name = 'Redux DevTools';
 

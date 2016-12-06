@@ -14,7 +14,7 @@ const {
  *  /
  *  /another
  **/
-const createRoutes = (store) => ( // eslint-disable-line no-unused-vars
+const createRoutes = store => ( // eslint-disable-line no-unused-vars
   <Route component={App}>
     <Route path="/" component={CounterPage} />
     <Route path="/another" component={AnotherPage} />

@@ -5,7 +5,7 @@ import createReducer from '../createReducer';
 const INIT_ACTION = '@@test/INIT_ACTION';
 const ACTION = 'ACTION';
 
-const createNextStateHandler = (nextState) => ({
+const createNextStateHandler = nextState => ({
   [ACTION]: () => nextState,
 });
 
