@@ -1,4 +1,3 @@
-import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import React from 'react';
 import { Router, createMemoryHistory, useRouterHistory } from 'react-router';
@@ -30,7 +29,7 @@ const renderRoute = path => {
 
 const expectIncludeComponents = (components, expectedComponents) => {
   expectedComponents.forEach(comp => {
-    expect(components).to.include(comp);
+    expect(components).toContain(comp);
   });
 };
 
