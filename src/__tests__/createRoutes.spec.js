@@ -18,7 +18,7 @@ const createStubStore = () => ({
   },
 });
 
-const renderRoute = (path) => {
+const renderRoute = path => {
   const history = useRouterHistory(createMemoryHistory)({ queryKey: false });
   history.push(path);
   const store = createStubStore();

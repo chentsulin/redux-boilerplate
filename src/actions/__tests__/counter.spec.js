@@ -36,7 +36,7 @@ describe('actions', () => {
   });
 
   // There's no nice way to test this at the moment...
-  it('incrementAsync', (done) => {
+  it('incrementAsync', done => {
     const fn = actions.incrementAsync(1);
     expect(fn).to.be.a('function');
     const dispatch = spy();

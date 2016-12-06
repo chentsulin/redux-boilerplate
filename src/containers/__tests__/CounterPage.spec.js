@@ -6,7 +6,7 @@ import CounterPage from '../CounterPage';
 import configureStore from '../../store/configureStore';
 
 
-const setup = (initialState) => {
+const setup = initialState => {
   const store = configureStore(initialState);
   const app = mount(
     <Provider store={store}>

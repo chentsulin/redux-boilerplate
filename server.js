@@ -22,7 +22,7 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-app.listen(port, 'localhost', (err) => {
+app.listen(port, 'localhost', err => {
   if (err) {
     console.log(err);
     return;
