@@ -23,8 +23,16 @@ app.use(require('webpack-dev-middleware')(compiler, {
 
 app.use(require('webpack-hot-middleware')(compiler));
 
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'index.html'));
+app.get('*', (req, res, next) => {
+  const filename = path.join(compiler.outputPath, 'index.html');
+
+  compiler.outputFileSystem.readFile(filename, (err, result) => { // eslint-disable-line consistent-return
+    if (err) {
+      return next(err);
+    }
+    res.set('content-type', 'text/html');
+    res.send(result);
+  });
 });
 
 app.listen(port, 'localhost', err => {
