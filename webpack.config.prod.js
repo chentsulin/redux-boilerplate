@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 const simpleVars = require('postcss-simple-vars');
@@ -27,6 +28,10 @@ module.exports = {
       },
     }),
     new ExtractTextPlugin('style.css', { allChunks: true }),
+    new HtmlWebpackPlugin({
+      template: 'src/index.html',
+      inject: true,
+    }),
   ],
   module: {
     loaders: [
