@@ -1,6 +1,7 @@
 import { shallow } from 'enzyme';
 import React from 'react';
 import { Router, createMemoryHistory, useRouterHistory } from 'react-router';
+
 import createRoutes from '../createRoutes';
 import * as containers from '../containers';
 

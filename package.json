@@ -14,7 +14,7 @@
     "test": "npm run lint && npm run testonly",
     "test:cov": "npm run lint && npm run testonly -- --coverage",
     "check": "npm run lint && npm run test",
-    "build": "cross-env NODE_ENV=production webpack src/index.js --config webpack.config.prod.js",
+    "build": "npm run clean && cross-env NODE_ENV=production webpack src/index.js --config webpack.config.prod.js",
     "preversion": "npm run clean && npm run check",
     "version": "npm run build",
     "postversion": "git push && git push --tags && npm run clean",
