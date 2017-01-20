@@ -1,13 +1,11 @@
 const path = require('path');
 const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const merge = require('webpack-merge');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const autoprefixer = require('autoprefixer');
-const simpleVars = require('postcss-simple-vars');
-const nested = require('postcss-nested');
 
+const config = require('./webpack.config.base');
 
-module.exports = {
+module.exports = merge.smart(config, {
   devtool: 'cheap-module-source-map',
   entry: './src/index',
   output: {
@@ -28,22 +26,9 @@ module.exports = {
       },
     }),
     new ExtractTextPlugin('style-[contenthash].css', { allChunks: true }),
-    new HtmlWebpackPlugin({
-      template: 'src/index.html',
-      inject: true,
-    }),
   ],
   module: {
     loaders: [
-      {
-        test: /\.js$/,
-        loaders: ['babel-loader'],
-        exclude: /node_modules/,
-      },
-      {
-        test: /\.json$/,
-        loaders: ['json-loader'],
-      },
       {
         test: /^((?!\.module).)*\.css$/,
         loader: ExtractTextPlugin.extract(
@@ -60,11 +45,4 @@ module.exports = {
       },
     ],
   },
-  postcss: [
-    autoprefixer({
-      browsers: ['last 2 version', 'IE 10'],
-    }),
-    simpleVars,
-    nested,
-  ],
-};
+});
