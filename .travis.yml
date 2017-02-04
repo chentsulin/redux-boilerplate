@@ -4,6 +4,7 @@ node_js:
   - '7'
   - '6'
   - '4'
+cache: yarn
 script: "npm run test:cov"
 after_success:
 - npm install codecov && node_modules/.bin/codecov
