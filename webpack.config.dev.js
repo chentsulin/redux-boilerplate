@@ -1,12 +1,10 @@
 const path = require('path');
 const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const autoprefixer = require('autoprefixer');
-const simpleVars = require('postcss-simple-vars');
-const nested = require('postcss-nested');
+const merge = require('webpack-merge');
 
+const config = require('./webpack.config.base');
 
-module.exports = {
+module.exports = merge.smart(config, {
   debug: true,
   devtool: 'cheap-module-eval-source-map',
   entry: [
@@ -26,22 +24,9 @@ module.exports = {
         NODE_ENV: JSON.stringify('development'),
       },
     }),
-    new HtmlWebpackPlugin({
-      template: 'src/index.html',
-      inject: true,
-    }),
   ],
   module: {
     loaders: [
-      {
-        test: /\.js$/,
-        loaders: ['babel-loader'],
-        exclude: /node_modules/,
-      },
-      {
-        test: /\.json$/,
-        loaders: ['json-loader'],
-      },
       {
         test: /^((?!\.module).)*\.css$/,
         loaders: [
@@ -59,11 +44,4 @@ module.exports = {
       },
     ],
   },
-  postcss: [
-    autoprefixer({
-      browsers: ['last 2 version', 'IE 10'],
-    }),
-    simpleVars,
-    nested,
-  ],
-};
+});
