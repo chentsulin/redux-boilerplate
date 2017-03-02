@@ -9,20 +9,20 @@ Extend [redux counter examples](https://github.com/reactjs/redux/tree/master/exa
 ## Start
 
 ```sh
-$ npm install
-$ npm start
+$ yarn install
+$ yarn run start
 ```
 
 Also, you can configure server port using `PORT` environment variable.
 
 ```sh
-$ PORT=5000 npm start
+$ PORT=5000 yarn run start
 ```
 
 ## Testing
 
 ```sh
-$ npm test
+$ yarn run test
 ```
 
 ## Generator
