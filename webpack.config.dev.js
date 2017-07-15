@@ -5,7 +5,6 @@ const merge = require('webpack-merge');
 const config = require('./webpack.config.base');
 
 module.exports = merge.smart(config, {
-  debug: true,
   devtool: 'cheap-module-eval-source-map',
   entry: [
     'webpack-hot-middleware/client',
@@ -26,19 +25,32 @@ module.exports = merge.smart(config, {
     }),
   ],
   module: {
-    loaders: [
+    rules: [
       {
         test: /^((?!\.module).)*\.css$/,
-        loaders: [
+        use: [
           'style-loader',
-          'css-loader?sourceMap',
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: true,
+            },
+          },
         ],
       },
       {
         test: /\.module\.css$/,
-        loaders: [
+        use: [
           'style-loader',
-          'css-loader?modules&sourceMap&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]', // eslint-disable-line max-len
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+              sourceMap: true,
+              importLoaders: 1,
+              localIdentName: '[name]__[local]___[hash:base64:5]',
+            },
+          },
           'postcss-loader',
         ],
       },

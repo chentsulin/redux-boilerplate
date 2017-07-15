@@ -1,19 +1,23 @@
-const autoprefixer = require('autoprefixer');
-const nested = require('postcss-nested');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const simpleVars = require('postcss-simple-vars');
 
 module.exports = {
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.js$/,
-        loaders: ['babel'],
+        use: ['babel-loader'],
         exclude: /node_modules/,
       },
       {
         test: /\.(png|jpg|jpeg|gif|svg)$/,
-        loaders: ['url-loader?limit=20000'],
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 20000,
+            },
+          },
+        ],
       },
     ],
   },
@@ -23,13 +27,5 @@ module.exports = {
       template: 'src/index.html',
       inject: true,
     }),
-  ],
-
-  postcss: [
-    autoprefixer({
-      browsers: ['last 2 version', 'ie >= 10'],
-    }),
-    simpleVars,
-    nested,
   ],
 };
